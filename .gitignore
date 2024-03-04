@@ -1,2 +1,6 @@
+### Go
+coverage.out
+
+### JetBrains
 .idea/
 *.iml

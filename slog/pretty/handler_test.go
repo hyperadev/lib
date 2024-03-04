@@ -3,6 +3,7 @@ package pretty
 import (
 	"bytes"
 	"fmt"
+	"io"
 	"log/slog"
 	"regexp"
 	"strconv"
@@ -38,6 +39,54 @@ func TestHandler(t *testing.T) {
 	}
 
 	slogtest.Run(t, newHandler, result)
+}
+
+func BenchmarkDefaultTextHandler(b *testing.B) {
+	l := slog.New(slog.NewTextHandler(io.Discard, nil))
+	b.ResetTimer()
+
+	b.RunParallel(func(pb *testing.PB) {
+		for pb.Next() {
+			l.Info("Hello, world!")
+		}
+	})
+}
+
+func BenchmarkDefaultJSONHandler(b *testing.B) {
+	l := slog.New(slog.NewJSONHandler(io.Discard, nil))
+	b.ResetTimer()
+
+	b.RunParallel(func(pb *testing.PB) {
+		for pb.Next() {
+			l.Info("Hello, world!")
+		}
+	})
+}
+
+func BenchmarkHandlerWithoutSource(b *testing.B) {
+	l := slog.New(NewHandler(io.Discard, &Options{
+		AddSource: false,
+	}))
+	b.ResetTimer()
+
+	b.RunParallel(func(pb *testing.PB) {
+		for pb.Next() {
+			l.Info("Hello, world!")
+		}
+	})
+}
+
+func BenchmarkHandlerWithSource(b *testing.B) {
+	l := slog.New(NewHandler(io.Discard, &Options{
+		AddSource: true,
+	}))
+	b.ResetTimer()
+
+	b.RunParallel(func(pb *testing.PB) {
+		for pb.Next() {
+			l.Info("Hello, world!")
+		}
+	})
 }
 
 func parse(b []byte) (map[string]any, error) {
