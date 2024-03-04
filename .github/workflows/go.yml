@@ -1,0 +1,15 @@
+name: "Go"
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  merge_group:
+
+jobs:
+  build:
+    name: "Build"
+    uses: HyperaDev/actions/.github/workflows/go-build.yml@main
+    with:
+      go_version: "stable"
+      vulncheck_enabled: true
