@@ -1,6 +1,9 @@
 # hypera.dev/lib
 
 [![Go Reference](https://pkg.go.dev/badge/hypera.dev/lib.svg)](https://pkg.go.dev/hypera.dev/lib#section-documentation)
+[![Go Report Card](https://goreportcard.com/badge/hypera.dev/lib)](https://goreportcard.com/report/hypera.dev/lib)
+[![Go Build Status](https://github.com/HyperaDev/lib/actions/workflows/go.yml/badge.svg)](https://github.com/HyperaDev/lib/actions/workflows/go.yml)
+[![MIT License](https://img.shields.io/badge/license-MIT-2155cc)](LICENSE)
 
 A collection of libraries used by Hypera Development's Go projects.
 
@@ -21,17 +24,18 @@ to contribute! If you would like to contribute to this project, please see our [
 
 ### Building
 
-##### Prerequisites
+###### Prerequisites
 
- - [Go 1.22+](https://go.dev/dl/)
+ - [Go v1.22.0 or newer](https://go.dev/dl/)
 
-##### Building
+###### Building
 
-<!-- TODO -->
+The project can be built by executing <kbd>go build ./...</kbd>.<br/>
+To run tests, run <kbd>go test -v ./...</kbd>.
 
 ### License
 
-`hypera.dev/lib` is distributed under the terms of the MIT License.<br/>
+`hypera.dev/lib` is released under the terms of the MIT License.<br/>
 For further details, please refer to the [LICENSE](LICENSE) file.
 
 ## Contact
