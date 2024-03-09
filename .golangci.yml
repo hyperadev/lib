@@ -1,0 +1,73 @@
+run:
+  tests: false
+
+linters:
+  enable:
+    - asasalint
+    - bidichk
+    - contextcheck
+    - cyclop
+    - decorder
+    - depguard
+    - dogsled
+    - dupl
+    - dupword
+    - durationcheck
+    - errchkjson
+    - errcheck
+    - errname
+    - errorlint
+    - exhaustive
+    - exportloopref
+    - gocheckcompilerdirectives
+    - gochecknoinits
+    - goconst
+    - gocritic
+    - godot
+    - godox
+    - gofmt
+    - gofumpt
+    - goheader
+    - goimports
+    - goprintffuncname
+    - gosec
+    - lll
+    - makezero
+    - mirror
+    - musttag
+    - misspell
+    - nestif
+    - nilerr
+    - nilnil
+    - noctx
+    - nosprintfhostport
+    - nonamedreturns
+    - paralleltest
+    - perfsprint
+    - prealloc
+    - predeclared
+    - promlinter
+    - revive
+    - rowserrcheck
+    - sloglint
+    - tagalign
+    - tagliatelle
+    - tenv
+    - thelper
+    - tparallel
+    - unconvert
+    - unparam
+    - usestdlibvars
+    - whitespace
+
+linters-settings:
+  depguard:
+    rules:
+      main:
+        allow:
+          - $gostd
+          - hypera.dev/lib
+  nestif:
+    min-complexity: 6
+  errcheck:
+    check-type-assertions: true

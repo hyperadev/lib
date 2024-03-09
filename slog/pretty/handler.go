@@ -258,6 +258,7 @@ func (h *handler) appendKey(buf *Buffer, key, groups string) {
 	buf.AppendByte('=')
 }
 
+// nolint: cyclop
 func (h *handler) appendValue(buf *Buffer, v slog.Value, quote bool) {
 	switch v.Kind() {
 	case slog.KindString:
@@ -275,20 +276,16 @@ func (h *handler) appendValue(buf *Buffer, v slog.Value, quote bool) {
 	case slog.KindTime:
 		appendString(buf, v.Time().String(), quote)
 	case slog.KindAny, slog.KindLogValuer:
-		switch av := v.Any().(type) {
-		case slog.Level:
-			h.opts.LevelFormatter(buf, av)
-		case *slog.Source:
-			h.opts.SourceFormatter(buf, av)
-		case encoding.TextMarshaler:
-			b, err := av.MarshalText()
+		if tm, ok := v.Any().(encoding.TextMarshaler); ok {
+			b, err := tm.MarshalText()
 			if err != nil {
 				break
 			}
 			appendString(buf, string(b), quote)
-		default:
-			appendString(buf, fmt.Sprint(av), quote)
+			return
 		}
+
+		appendString(buf, fmt.Sprint(v.Any()), quote)
 	case slog.KindGroup:
 		// Nothing to do
 	}

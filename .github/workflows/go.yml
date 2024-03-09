@@ -12,4 +12,5 @@ jobs:
     uses: HyperaDev/actions/.github/workflows/go-build.yml@main
     with:
       go_version: "stable"
+      lint_enabled: true
       vulncheck_enabled: true
