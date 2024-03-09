@@ -17,12 +17,12 @@ const (
 )
 
 // TimeFormatter writes the formatted time to the buffer.
-type TimeFormatter func(buf *Buffer, time time.Time)
+type TimeFormatter func(buf *Buffer, t time.Time)
 
 // DefaultTimeFormatter is the default TimeFormatter.
 func DefaultTimeFormatter(layout string) TimeFormatter {
-	return func(buf *Buffer, time time.Time) {
-		buf.AppendTimeFormat(time, layout)
+	return func(buf *Buffer, t time.Time) {
+		buf.AppendTimeFormat(t, layout)
 	}
 }
 
