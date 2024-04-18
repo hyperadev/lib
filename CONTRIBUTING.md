@@ -114,6 +114,7 @@ This allows for the Git history to be more readable and helps us generate change
 #### Allowed scopes
 
 - `slog/pretty`, when making changes in the `slog/pretty` package.
+- `util/retry`, when making changes in the `util/retry` package.
 - `deps`, when adding, updating, or removing dependencies.
 
 When using the type `ci`, workflow names (`.github/workflows/` files, excluding extensions) may be

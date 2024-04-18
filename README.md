@@ -17,6 +17,10 @@ A collection of libraries used by Hypera Development's Go projects.
 
 A human-readable and optionally coloured [**slog.Handler**](https://pkg.go.dev/log/slog#Handler).
 
+### [util/retry](util/retry)
+
+An easy-to-use retry utility.
+
 ## Contributing
 
 We welcome all contributions! If you have found something that you think can be improved, please feel free
@@ -24,11 +28,11 @@ to contribute! If you would like to contribute to this project, please see our [
 
 ### Building
 
-###### Prerequisites
+##### Prerequisites
 
- - [Go v1.22.0 or newer](https://go.dev/dl/)
+ - [Go v1.22 or newer](https://go.dev/dl/)
 
-###### Building
+##### Building
 
 The project can be built by executing <kbd>go build ./...</kbd>.<br/>
 To run tests, run <kbd>go test -v ./...</kbd>.
